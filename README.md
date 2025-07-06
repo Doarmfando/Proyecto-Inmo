@@ -18,6 +18,7 @@ git checkout -b rama-nombre
 3. 💻 Trabajar en esa rama
 
 git add .
+
 git commit -m "Agrega formulario de login"
 
 
