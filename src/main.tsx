@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createHashRouter } from "react-router-dom";
 import App from "./App";
 import Login from "./pages/login";
 import "./index.css";
+import './styles/animatedBackground.css'; // ✅ ESTA ES LA CORRECTA
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <App />,
