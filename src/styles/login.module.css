@@ -1,0 +1,111 @@
+/* login.module.css */
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #ffffff; /* blanco de fondo */
+  font-family: 'Segoe UI', sans-serif;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-top: 6px solid #2f50ac; /* azul destacado */
+  border-radius: 16px;
+  padding: 40px 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header {
+  text-align: center;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  text-align: center;
+  background: linear-gradient(
+    120deg,
+    #2f50ac 0%,
+    #2f50ac 30%,
+    #fff212 50%,
+    #2f50ac 70%,
+    #2f50ac 100%
+  );
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: rayFlash 3s infinite linear;
+  font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+}
+
+@keyframes rayFlash {
+  0% {
+    background-position: 200% 0%;
+  }
+  100% {
+    background-position: -100% 0%;
+  }
+}
+
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #475569;
+  margin-top: 4px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.button {
+  background-color: #2f50ac;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.button:hover {
+  background-color: #1e3799;
+}
+
+.button:focus {
+  outline: 2px solid #fff212; /* acento amarillo */
+  outline-offset: 2px;
+}
+
+.logo {
+  width: 80px;
+  height: auto;
+  margin: 0 auto 12px auto;
+  display: block;
+}
+
+.logo {
+  width: 100px;
+  transition: filter 0.3s ease;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 12px #fff212) brightness(1.1);
+}
