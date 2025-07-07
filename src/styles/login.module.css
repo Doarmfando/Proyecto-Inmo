@@ -1,36 +1,39 @@
+/* ========== FUENTE GLOBAL ========== */
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap');
+
+/* ========== CONTENEDOR GENERAL ========== */
 .wrapper {
   display: flex;
   height: 100vh;
   width: 100vw;
   font-family: 'Segoe UI', sans-serif;
   position: relative;
-  overflow: hidden; /* Para evitar barras de scroll si hay desbordes */
+  overflow: hidden;
+  flex-direction: row;
 }
 
+/* ========== PANEL IZQUIERDO (AZUL) ========== */
 .leftPanel {
-  width: 16%; /* De 20 a 16 */
-  background-color: #2f50ac;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 16%;
   height: 100vh;
-  margin-left: 20px; /* <- este es el espacio desde el borde izquierdo */
-  border-top-left-radius: 12px; /* opcional para redondear la esquina superior */
-  border-bottom-left-radius: 0px; /* opcional para redondear la esquina inferior */
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* opcional: sombra a la derecha */
+  margin-left: 20px;
+  background-color: #2f50ac;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 0;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 40px;
   animation: slideInLeftPanel 1s ease-out forwards;
-  padding-top: 40px;             /* 👈 Espacio desde arriba */
- align-items: flex-start;       /* 👈 Cambiado para alinear arriba */
-
-
 }
-
 
 .sideLogo {
-  width: 280px; /* De 120 a 200 */
+  width: 280px;
   height: auto;
 }
 
+/* ========== CONTENIDO PRINCIPAL ========== */
 .mainContent {
   width: 80%;
   display: flex;
@@ -38,9 +41,10 @@
   justify-content: center;
   background-color: transparent;
   position: relative;
-    z-index: 1;
+  z-index: 1;
 }
 
+/* ========== TARJETA DE LOGIN ========== */
 .card {
   width: 100%;
   max-width: 400px;
@@ -58,11 +62,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.logo {
-  width: 80px;
-  margin-bottom: 12px;
 }
 
 .title {
@@ -93,6 +92,7 @@
   }
 }
 
+/* ========== FORMULARIO Y BOTÓN ========== */
 .form {
   display: flex;
   flex-direction: column;
@@ -109,7 +109,7 @@
   border-radius: 8px;
   cursor: pointer;
   transition: filter 0.3s ease;
-  outline: none;         /* 🔵 Elimina el borde al hacer clic */
+  outline: none;
 }
 
 .button:hover {
@@ -117,13 +117,13 @@
 }
 
 .button:focus {
-  outline: none;         /* 🔵 También al recibir el foco desde teclado */
+  outline: none;
 }
 
-
+/* ========== PIE DE PÁGINA AMARILLO ========== */
 .bottomBanner {
-  position: absolute;       /* Posicionado respecto al contenedor padre */
-  bottom: 20px;             /* <- aquí está la "flotación" */
+  position: absolute;
+  bottom: 20px;
   left: 0;
   width: 100vw;
   background-color: #fff212;
@@ -134,10 +134,9 @@
   font-weight: bold;
   font-size: 14px;
   z-index: 3;
-  border-radius: 8px;       /* Opcional para dar un efecto más "suave" */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombrita para realce */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
-
 
 .miniLogo {
   height: 25px;
@@ -145,4 +144,45 @@
 
 .powered {
   color: #2f50ac;
+}
+
+/* ========== RESPONSIVE (hasta 768px) ========== */
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .leftPanel {
+    width: 100%;
+    height: auto;
+    margin-left: 0;
+    border-radius: 0;
+    justify-content: center;
+    padding: 20px 0;
+    animation: none;
+  }
+
+  .sideLogo {
+    width: 180px;
+  }
+
+  .mainContent {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .card {
+    max-width: 90%;
+    padding: 30px 20px;
+  }
+
+  .bottomBanner {
+    position: relative;
+    bottom: 0;
+    width: 90%;
+    margin: 20px auto 0;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+  }
 }
