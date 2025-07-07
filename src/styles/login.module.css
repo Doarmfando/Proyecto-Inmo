@@ -1,34 +1,62 @@
-/* login.module.css */
+.wrapper {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+  overflow: hidden; /* Para evitar barras de scroll si hay desbordes */
+}
 
-.container {
+.leftPanel {
+  width: 20%;
+  background-color: #2f50ac;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  width: 100vw;
-  background-color: #ffffff; /* blanco de fondo */
-  font-family: 'Segoe UI', sans-serif;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
+  height: 100vh;
+  margin-left: 20px; /* <- este es el espacio desde el borde izquierdo */
+  border-top-left-radius: 12px; /* opcional para redondear la esquina superior */
+  border-bottom-left-radius: 0px; /* opcional para redondear la esquina inferior */
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* opcional: sombra a la derecha */
+}
+
+
+.sideLogo {
+  width: 120px;
+  height: auto;
+}
+
+.mainContent {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  position: relative;
 }
 
 .card {
   width: 100%;
-  max-width: 420px;
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-top: 6px solid #2f50ac; /* azul destacado */
+  max-width: 400px;
+  background-color: #fff;
+  padding: 40px;
   border-radius: 16px;
-  padding: 40px 32px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   gap: 24px;
+  z-index: 2;
 }
 
 .header {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 80px;
+  margin-bottom: 12px;
 }
 
 .title {
@@ -48,7 +76,6 @@
   -webkit-background-clip: text;
   color: transparent;
   animation: rayFlash 3s infinite linear;
-  font-family: "Segoe UI", "Helvetica Neue", sans-serif;
 }
 
 @keyframes rayFlash {
@@ -58,13 +85,6 @@
   100% {
     background-position: -100% 0%;
   }
-}
-
-
-.subtitle {
-  font-size: 0.95rem;
-  color: #475569;
-  margin-top: 4px;
 }
 
 .form {
@@ -82,30 +102,35 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: background-color 0.2s ease;
 }
 
 .button:hover {
-  background-color: #1e3799;
+  background-color: #1d3d8d;
 }
 
-.button:focus {
-  outline: 2px solid #fff212; /* acento amarillo */
-  outline-offset: 2px;
+.bottomBanner {
+  position: absolute;       /* Posicionado respecto al contenedor padre */
+  bottom: 20px;             /* <- aquí está la "flotación" */
+  left: 0;
+  width: 100vw;
+  background-color: #fff212;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  z-index: 3;
+  border-radius: 8px;       /* Opcional para dar un efecto más "suave" */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombrita para realce */
 }
 
-.logo {
-  width: 80px;
-  height: auto;
-  margin: 0 auto 12px auto;
-  display: block;
+
+.miniLogo {
+  height: 25px;
 }
 
-.logo {
-  width: 100px;
-  transition: filter 0.3s ease;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 12px #fff212) brightness(1.1);
+.powered {
+  color: #2f50ac;
 }
