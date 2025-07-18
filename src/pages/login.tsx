@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import InputWithIcon from "../components/InputWithIcon";
 import PasswordInput from "../components/PasswordInput";
 import RememberMe from "../components/RememberMe";
@@ -7,6 +8,14 @@ import logo from "../assets/logo-1.png";
 import miniLogo from "../assets/mini-logo.png";
 
 export default function Login() {
+  const navigate = useNavigate();
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // Aquí podrías validar inputs si lo deseas.
+    navigate("/inicio"); // Simula login exitoso
+  };
+
   return (
     <div className="area">
       {/* Fondo animado */}
@@ -27,7 +36,7 @@ export default function Login() {
             <div className={styles.header}>
               <h1 className={styles.title}>Inicia Sesión</h1>
             </div>
-            <form className={styles.form}>
+            <form className={styles.form} onSubmit={handleSubmit}>
               <InputWithIcon icon={<FaUser />} placeholder="Usuario o correo" />
               <PasswordInput />
               <RememberMe />

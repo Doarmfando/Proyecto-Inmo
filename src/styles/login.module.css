@@ -17,7 +17,7 @@
   width: 16%;
   height: 100vh;
   margin-left: 20px;
-  background-color: #2f50ac;
+  background-color: #214480;
   border-top-left-radius: 12px;
   border-bottom-left-radius: 0;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
@@ -126,7 +126,7 @@
   bottom: 20px;
   left: 0;
   width: 100vw;
-  background-color: #fff212;
+  background-color: #F0F2F5;
   padding: 15px 24px;
   display: flex;
   align-items: center;
