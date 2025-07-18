@@ -1,10 +1,10 @@
-import styles from "./components.module.css";
+import styles from "./rememberMe.module.css";
 
 export default function RememberMe() {
   return (
-    <label className={styles.remember}>
-      <input type="checkbox" />
-      Recuérdame
-    </label>
+    <div className={styles.rememberMe}>
+      <label htmlFor="remember">Recuérdame</label>
+      <input type="checkbox" id="remember" className={styles.checkbox} />
+    </div>
   );
 }

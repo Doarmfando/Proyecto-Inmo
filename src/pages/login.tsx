@@ -10,10 +10,12 @@ import miniLogo from "../assets/mini-logo.png";
 export default function Login() {
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Aquí podrías validar inputs si lo deseas.
-    navigate("/inicio"); // Simula login exitoso
+
+    // Aquí podrías validar usuario y contraseña si lo necesitas
+    // Simulación: Redirigir directamente
+    navigate("/inicio");
   };
 
   return (

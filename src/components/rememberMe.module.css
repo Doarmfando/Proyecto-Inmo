@@ -1,0 +1,17 @@
+.rememberMe {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* más cercano */
+  font-size: 1rem;
+  font-weight: 500;
+  color: #2f50ac;
+  margin-top: 12px;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: #2f50ac;
+  cursor: pointer;
+  margin: 0;
+}

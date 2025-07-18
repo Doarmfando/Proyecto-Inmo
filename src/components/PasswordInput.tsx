@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaLock } from "react-icons/fa";
 import { FiEye, FiEyeOff } from "react-icons/fi";
-import styles from "./components.module.css";
+import styles from "./passwordInput.module.css";
 
 export default function PasswordInput() {
   const [showPassword, setShowPassword] = useState(false);
