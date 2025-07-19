@@ -5,10 +5,14 @@ import { propiedades as propiedadesIniciales } from "../../data/propiedades";
 import styles from "../../styles/propiedades.module.css";
 import SistemaLayout from "../../layout/SistemaLayout";
 import ModalNuevaPropiedad from "../../components/ModalNuevaPropiedad";
+import ModalEditarPropiedad from "../../components/ModalEditarPropiedad";
 
 export default function Propiedades() {
-  const [mostrarModal, setMostrarModal] = useState(false);
   const [listaPropiedades, setListaPropiedades] = useState<Propiedad[]>([]);
+  const [mostrarModal, setMostrarModal] = useState(false);
+  const [mostrarEditar, setMostrarEditar] = useState(false);
+  const [propiedadAEditar, setPropiedadAEditar] = useState<Propiedad | null>(null);
+  const [modoSeleccionEdicion, setModoSeleccionEdicion] = useState(false);
 
   useEffect(() => {
     const local = localStorage.getItem("propiedades");
@@ -18,23 +22,44 @@ export default function Propiedades() {
     } else {
       setListaPropiedades(propiedadesIniciales);
     }
-  }, [mostrarModal]); // Se recarga la lista al cerrar el modal
+  }, [mostrarModal, mostrarEditar]);
+
+  const handleSeleccionEdicion = (propiedad: Propiedad) => {
+    if (!modoSeleccionEdicion) return;
+    setPropiedadAEditar(propiedad);
+    setMostrarEditar(true);
+    setModoSeleccionEdicion(false);
+  };
 
   return (
     <SistemaLayout>
       <div className={styles.header}>
         <h1 className={styles.title}>Listado de Propiedades</h1>
-        <button
-          className={styles.newButton}
-          onClick={() => setMostrarModal(true)}
-        >
-          + Registrar nueva propiedad
-        </button>
+
+        <div className={styles.buttonGroup}>
+          <button
+            className={styles.newButton}
+            onClick={() => setMostrarModal(true)}
+          >
+            + Registrar nueva propiedad
+          </button>
+
+          <button
+            className={styles.editButton}
+            onClick={() => setModoSeleccionEdicion(true)}
+          >
+            ✏️ Editar propiedad existente
+          </button>
+        </div>
       </div>
 
       <div className={styles.grid}>
         {listaPropiedades.map((propiedad) => (
-          <div key={propiedad.id} className={styles.card}>
+          <div
+            key={propiedad.id}
+            className={`${styles.card} ${modoSeleccionEdicion ? styles.cardSelectable : ""}`}
+            onClick={() => handleSeleccionEdicion(propiedad)}
+          >
             <img
               src={propiedad.imagen}
               alt={propiedad.titulo}
@@ -49,12 +74,27 @@ export default function Propiedades() {
             >
               {propiedad.estado}
             </span>
+            {modoSeleccionEdicion && (
+              <div className={styles.cardOverlay}>
+                <span>Haz clic para editar</span>
+              </div>
+            )}
           </div>
         ))}
       </div>
 
       {mostrarModal && (
         <ModalNuevaPropiedad onClose={() => setMostrarModal(false)} />
+      )}
+
+      {mostrarEditar && propiedadAEditar && (
+        <ModalEditarPropiedad
+          propiedad={propiedadAEditar}
+          onClose={() => {
+            setMostrarEditar(false);
+            setPropiedadAEditar(null);
+          }}
+        />
       )}
     </SistemaLayout>
   );
