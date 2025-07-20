@@ -108,3 +108,42 @@
 .newButton:hover {
   background-color: #1f3e85;
 }
+
+.card {
+  position: relative;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+}
+
+/* Card visible como seleccionable */
+.cardSelectable {
+  border: 2px dashed #2f50ac;
+  cursor: pointer;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardSelectable:hover {
+  box-shadow: 0 4px 12px rgba(47, 80, 172, 0.2);
+  transform: translateY(-2px);
+  background-color: #f4f7ff;
+}
+
+/* Overlay visual si quieres reforzar aún más */
+.cardOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(47, 80, 172, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2f50ac;
+  font-weight: bold;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  pointer-events: none;
+}

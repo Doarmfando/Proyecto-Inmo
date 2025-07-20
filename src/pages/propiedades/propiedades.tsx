@@ -48,7 +48,7 @@ export default function Propiedades() {
             className={styles.editButton}
             onClick={() => setModoSeleccionEdicion(true)}
           >
-            ✏️ Editar propiedad existente
+             Editar propiedad existente
           </button>
         </div>
       </div>
