@@ -7,13 +7,14 @@ import ModalNuevoInteresado from "../../components/ModalNuevoInteresado";
 import ModalEditarInteresado from "../../components/ModalEditarInteresado";
 import SistemaLayout from "../../layout/SistemaLayout";
 
+import { Pencil, Trash2 } from "lucide-react";
+
 export default function Interesados() {
   const [lista, setLista] = useState<Interesado[]>([]);
   const [busqueda, setBusqueda] = useState("");
   const [mostrarNuevo, setMostrarNuevo] = useState(false);
   const [interesadoAEditar, setInteresadoAEditar] = useState<Interesado | null>(null);
 
-  // Normalizar un interesado
   const normalizarInteresado = (i: Partial<Interesado>): Interesado => ({
     id: i.id ?? Date.now(),
     nombre: i.nombre ?? "Sin nombre",
@@ -24,7 +25,6 @@ export default function Interesados() {
     fecha: i.fecha ?? new Date().toISOString().slice(0, 10),
   });
 
-  // Cargar datos desde localStorage o usar mock
   useEffect(() => {
     const local = localStorage.getItem("interesados");
     if (local) {
@@ -75,17 +75,24 @@ export default function Interesados() {
         <h1 className={styles.title}>Listado de Interesados</h1>
 
         <div className={styles.actions}>
-          <input
-            type="text"
-            placeholder="Buscar por nombre..."
-            className={styles.search}
-            value={busqueda}
-            onChange={(e) => setBusqueda(e.target.value)}
-          />
+          <div className={styles.searchContainer}>
+            <input
+              type="text"
+              placeholder="Buscar por nombre..."
+              className={styles.search}
+              value={busqueda}
+              onChange={(e) => setBusqueda(e.target.value)}
+            />
+          </div>
 
-          <button className={styles.newButton} onClick={() => setMostrarNuevo(true)}>
-            + Registrar interesado
-          </button>
+          <div className={styles.buttonContainer}>
+            <button
+              className={styles.newButton}
+              onClick={() => setMostrarNuevo(true)}
+            >
+              + Registrar interesado
+            </button>
+          </div>
         </div>
       </div>
 
@@ -112,13 +119,20 @@ export default function Interesados() {
                 <td>{interesado.propiedad}</td>
                 <td>{interesado.fecha}</td>
                 <td>
-                  <button
-                    onClick={() => setInteresadoAEditar(interesado)}
-                    style={{ marginRight: "0.5rem" }}
-                  >
-                    ✏️
-                  </button>
-                  <button onClick={() => eliminarInteresado(interesado.id)}>🗑️</button>
+                  <div className={styles.actionsCell}>
+                    <button
+                      className={styles.iconButton}
+                      onClick={() => setInteresadoAEditar(interesado)}
+                    >
+                      <Pencil size={18} />
+                    </button>
+                    <button
+                      className={styles.iconButton}
+                      onClick={() => eliminarInteresado(interesado.id)}
+                    >
+                      <Trash2 size={18} />
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}
