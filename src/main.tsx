@@ -11,6 +11,7 @@ import Login from "./pages/login";
 import Inicio from "./pages/Inicio";
 import Propiedades from "./pages/propiedades/propiedades";
 import NuevaPropiedad from "./pages/propiedades/nueva";
+import Interesados from "./pages/interesados"; // ✅ importa la vista
 
 
 // ⚠️ Estas son vistas futuras que puedes crear después
@@ -40,6 +41,7 @@ const router = createHashRouter([
       { path: "inicio", element: <Inicio /> },
       { path: "propiedades", element: <Propiedades /> }, // ✅ nueva ruta
       { path: "propiedades/nueva", element: <NuevaPropiedad /> },
+      { path: "interesados", element: <Interesados /> }, // ✅ activa esta ruta
 
 
       // Rutas futuras
